@@ -4,7 +4,7 @@ agent any
 
 stages {
 
-stage(‘Checkout’) {
+stage('Checkout') {
 
 steps {
 
@@ -14,11 +14,11 @@ checkout scm
 
 }
 
-stage(‘Build’) {
+stage('Build') {
 
 steps {
 
-bat ‘dotnet build aspnetapp.sln –configuration Release’
+bat 'dotnet build aspnetapp.sln –configuration Release'
 
 }
 }
