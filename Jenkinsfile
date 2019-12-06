@@ -18,7 +18,7 @@ stage('Build') {
 
 steps {
 
-bat 'dotnet build aspnetapp.sln –configuration Release'
+sh 'dotnet build aspnetapp.sln –configuration Release'
 
 }
 }
