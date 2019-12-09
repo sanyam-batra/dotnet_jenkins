@@ -21,14 +21,14 @@ checkout scm
 
 }
 
-stage('Build') {
+/*stage('Build') {
 
 steps {
 
 sh 'dotnet build aspnetapp.sln'
 
 }
-}
+}*/
   /*stage('Build image') {
     steps {
       script{
