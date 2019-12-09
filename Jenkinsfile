@@ -1,6 +1,7 @@
 pipeline {
 
 agent any
+  tool name: 'terraform_tool', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
   environment {
     registry = "sanyambatra/demo-pipeline"
     registryCredential = 'docker-hub'
