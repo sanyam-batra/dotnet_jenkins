@@ -1,6 +1,6 @@
 pipeline {
 
-  agent { dockerfile true}
+  agent any
   
   environment {
     registry = "sanyambatra/demo-pipeline"
