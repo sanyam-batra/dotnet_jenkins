@@ -46,7 +46,7 @@ sh 'dotnet build aspnetapp.sln'
   stage('Terraform') {
     steps {
       script {
-        terraform init
+        sh 'terraform init'
         /*withCredentials([azureServicePrincipal('azure-cred')]) {
     sh 'terraform apply -auto-approve'
 }*/
