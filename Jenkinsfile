@@ -1,6 +1,6 @@
 pipeline {
 
-agent any
+  agent {dockerfile true}
   
   environment {
     registry = "sanyambatra/demo-pipeline"
@@ -21,7 +21,7 @@ checkout scm
 
 }
 
-/*stage('Build') {
+stage('Build') {
 
 steps {
 
@@ -29,7 +29,7 @@ sh 'dotnet build aspnetapp.sln'
 
 }
 }
-  stage('Build image') {
+  /*stage('Build image') {
     steps {
       script{
       dockerImage=docker.build registry + ":$BUILD_NUMBER"
@@ -44,13 +44,13 @@ sh 'dotnet build aspnetapp.sln'
       }   
       }
     }
-  }*/
+  }
   stage('Terraform') {
     steps {
       script {
         sh 'terraform init'
       }
     }
-  }
+  }*/
 }
 }
