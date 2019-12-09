@@ -49,9 +49,6 @@ sh 'dotnet build aspnetapp.sln'
     steps {
       script {
         sh 'terraform init'
-    withCredentials([azureServicePrincipal('azure-cred')]) {
-    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
-}
       }
     }
   }
