@@ -6,7 +6,7 @@ agent any
     registry = "sanyambatra/demo-pipeline"
     registryCredential = 'docker-hub'
     dockerImage = ''
-    terraform_var = tool name: 'terraform_tool', type: 'org.jenkinsci.plugins.terraform.TerraformInstallation'
+    
   }
 
 stages {
