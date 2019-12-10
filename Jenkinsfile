@@ -38,10 +38,10 @@ stage('Build') {
 }
 }
 }
-  /*stage('Build image') {
+  stage('Build image') {
     steps {
       script{
-      dockerImage=docker.build registry + ":$BUILD_NUMBER"
+      dockerImage=docker.build("dotnetapp_img:${env.BUILD_ID}","./aspnetapp/")
       }
     }
   }
@@ -54,7 +54,7 @@ stage('Build') {
       }
     }
   }
-  stage('Terraform') {
+  /*stage('Terraform') {
     steps {
       script {
         sh 'terraform init'
