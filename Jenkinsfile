@@ -48,10 +48,13 @@ stage('Build') {
   stage('Push image') {
     steps {
       script {
-        docker.withRegistry( '', registryCredential ) {
-          
+        withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password_var', usernameVariable: 'username_var')]) {
+      docker.withRegistry( '', registryCredential ) {
+          sh 'docker login -u ${username_var} -p ${password_var}'
         dockerImage.push()
-      }   
+      }  
+}
+       
       }
     }
   }
