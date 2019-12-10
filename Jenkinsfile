@@ -1,5 +1,5 @@
 pipeline {
-
+  dir("C:\\Program Files (x86)\\Jenkins\\workspace\\dotnet_pipeline") {
   agent none
   
   environment {
@@ -12,7 +12,6 @@ pipeline {
 stages {
 
 stage('Checkout') {
-  dir("C:\\Program Files (x86)\\Jenkins\\workspace\\dotnet_pipeline") {
   agent {
     docker { image 'alpine:latest' }
   }
@@ -24,7 +23,7 @@ checkout scm
 }
 
 }
-}
+
 
 /*stage('Build') {
   agent {
@@ -60,5 +59,6 @@ sh 'dotnet --version'
       }
     }
   }*/
+}
 }
 }
