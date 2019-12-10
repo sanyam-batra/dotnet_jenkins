@@ -12,8 +12,15 @@ stages {
 stage('Checkout') {
     
 steps {
+      script {
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+    customImage.inside {
+        checkout scm
+    }
+}
     
-checkout scm
+
     
 }
     
@@ -25,7 +32,7 @@ stage('Build') {
     def customImage = docker.build("my-image:${env.BUILD_ID}")
 
     customImage.inside {
-        sh 'dotnet --version'
+        sh 'dotnet build aspnetapp.sln'
     }
 }
 }
