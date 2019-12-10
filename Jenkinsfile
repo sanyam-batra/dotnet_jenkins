@@ -11,7 +11,7 @@ pipeline {
 
 stages {
 
-/*stage('Checkout') {
+stage('Checkout') {
   agent {
     docker { image 'sanyambatra/cust_img:2' }
   }
@@ -22,7 +22,7 @@ checkout scm
 
 }
 
-}*/
+}
 
 stage('Build') {
   agent {
