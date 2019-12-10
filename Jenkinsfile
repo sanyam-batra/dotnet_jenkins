@@ -1,6 +1,6 @@
 pipeline {
 
-  agent { docker { image 'sanyambatra/cust_img:2'}}
+  agent any
   
   environment {
     registry = "sanyambatra/demo-pipeline"
