@@ -1,64 +1,9 @@
-pipeline {
-  
-  agent none
-  
-  environment {
-    registry = "sanyambatra/demo-pipeline"
-    registryCredential = 'docker-hub'
-    dockerImage = ''
-    
-  }
+node {
+    checkout scm
 
-stages {
-  
-stage('Checkout') {
-  agent {
-    docker { 
-      image 'alpine:latest' 
-      args '-v "c://Program Files (x86)//Jenkins//workspace//dotnet_pipeline":/root/dotnet_pipeline'
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+    customImage.inside {
+        sh 'dotnet --version'
     }
-  }
-steps {
-checkout scm
 }
-
-}
-  
-
-/*stage('Build') {
-  agent {
-    docker { image 'sanyambatra/cust_img:2' }
-  }
-
-steps {
-
-sh 'dotnet --version'
-
-}
-}*/
-  /*stage('Build image') {
-    steps {
-      script{
-      dockerImage=docker.build registry + ":$BUILD_NUMBER"
-      }
-    }
-  }
-  stage('Push image') {
-    steps {
-      script {
-        docker.withRegistry( '', registryCredential ) {
-        dockerImage.push()
-      }   
-      }
-    }
-  }
-  stage('Terraform') {
-    steps {
-      script {
-        sh 'terraform init'
-      }
-    }
-  }*/
-}
-}
-
