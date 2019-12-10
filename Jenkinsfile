@@ -10,9 +10,9 @@ pipeline {
   }
 
 stages {
-    agent any
-stage('Checkout') {
     
+stage('Checkout') {
+    agent any
 steps {
     
 checkout scm
