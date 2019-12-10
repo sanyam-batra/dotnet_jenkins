@@ -7,7 +7,7 @@ COPY *.csproj ./aspnetapp/
 RUN dotnet restore
 
 # copy everything else and build app
-COPY aspnetapp/. ./aspnetapp/
+COPY . ./aspnetapp/
 WORKDIR /app/aspnetapp
 RUN dotnet publish -c Release -o out
 
