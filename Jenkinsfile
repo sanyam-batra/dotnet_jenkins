@@ -1,7 +1,4 @@
 pipeline {
-
-
-  
   environment {
     registry = "sanyambatra/demo-pipeline"
     registryCredential = 'docker-hub'
@@ -29,7 +26,6 @@ stage('Build') {
     }
 }
 
-}*/
   /*stage('Build image') {
     steps {
       script{
