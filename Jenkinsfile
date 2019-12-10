@@ -1,5 +1,5 @@
 pipeline {
-  dir("C:\\Program Files (x86)\\Jenkins\\workspace\\dotnet_pipeline") {
+  
   agent none
   
   environment {
@@ -61,4 +61,4 @@ sh 'dotnet --version'
   }*/
 }
 }
-}
+
