@@ -1,6 +1,6 @@
 pipeline {
 
-    agent none
+
   
   environment {
     registry = "sanyambatra/demo-pipeline"
@@ -10,7 +10,7 @@ pipeline {
   }
 
 stages {
-    
+    agent any
 stage('Checkout') {
     
 steps {
