@@ -4,6 +4,7 @@ pipeline {
     registry = "sanyambatra/demo-pipeline"
     registryCredential = 'docker-hub'
     dockerImage = ''
+    HOME = '/tmp'
     
   }
 
