@@ -1,6 +1,6 @@
 pipeline {
 
-  agent any
+  
   
   environment {
     registry = "sanyambatra/demo-pipeline"
@@ -12,6 +12,7 @@ pipeline {
 stages {
 
 stage('Checkout') {
+  agent any
 
 steps {
 
@@ -21,14 +22,17 @@ checkout scm
 
 }
 
-/*stage('Build') {
+stage('Build') {
+  agent {
+    docker { image 'sanyambatra/cust_img:2' }
+  }
 
 steps {
 
 sh 'dotnet build aspnetapp.sln'
 
 }
-}*/
+}
   /*stage('Build image') {
     steps {
       script{
