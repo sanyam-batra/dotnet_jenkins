@@ -1,4 +1,5 @@
 pipeline {
+  agent any
   environment {
     registry = "sanyambatra/demo-pipeline"
     registryCredential = 'docker-hub'
@@ -9,7 +10,7 @@ pipeline {
 stages {
     
 stage('Checkout') {
-    agent any
+    
 steps {
     
 checkout scm
