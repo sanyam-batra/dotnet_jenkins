@@ -1,6 +1,6 @@
 pipeline {
 
-  
+  agent none
   
   environment {
     registry = "sanyambatra/demo-pipeline"
