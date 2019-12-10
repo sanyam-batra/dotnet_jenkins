@@ -15,7 +15,7 @@ stage('Checkout') {
   agent {
     docker { 
       image 'alpine:latest' 
-      args '-v C:/Program Files%(x86)/Jenkins/workspace/dotnet_pipeline/:/root/'
+      args '-v C:/Program Files(x86)/Jenkins/workspace/dotnet_pipeline/:/root/'
     }
   }
 steps {
