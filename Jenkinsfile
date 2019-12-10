@@ -49,6 +49,7 @@ stage('Build') {
     steps {
       script {
         docker.withRegistry( '', registryCredential ) {
+          docker login
         dockerImage.push()
       }   
       }
