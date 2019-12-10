@@ -10,10 +10,12 @@ pipeline {
   }
 
 stages {
-  dir("C:\\Program Files (x86)\\Jenkins\\workspace\\dotnet_pipeline") {
+  
 stage('Checkout') {
+  dir("C:\\Program Files (x86)\\Jenkins\\workspace\\dotnet_pipeline") {
   agent {
     docker { image 'alpine:latest' }
+  }
   }
 
 steps {
@@ -23,7 +25,7 @@ checkout scm
 }
 
 }
-  }
+  
 
 /*stage('Build') {
   agent {
