@@ -12,7 +12,9 @@ pipeline {
 stages {
 
 stage('Checkout') {
-  agent any
+  agent {
+    docker { image 'sanyambatra/cust_img:2' }
+  }
 
 steps {
 
