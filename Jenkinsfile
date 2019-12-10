@@ -13,7 +13,7 @@ stages {
 
 stage('Checkout') {
   agent {
-    docker { image 'sanyambatra/cust_img:2' }
+    docker { image 'alpine:latest' }
   }
 
 steps {
@@ -24,7 +24,7 @@ checkout scm
 
 }
 
-stage('Build') {
+/*stage('Build') {
   agent {
     docker { image 'sanyambatra/cust_img:2' }
   }
@@ -34,7 +34,7 @@ steps {
 sh 'dotnet --version'
 
 }
-}
+}*/
   /*stage('Build image') {
     steps {
       script{
