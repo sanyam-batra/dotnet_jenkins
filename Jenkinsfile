@@ -41,18 +41,17 @@ stage('Build') {
   stage('Build image') {
     steps {
       script{
-      dockerImage=docker.build("dotnetapp_img:${env.BUILD_ID}")
+      dockerImage=docker.build("demo-pipeline:${env.BUILD_ID}")
       }
     }
   }
   stage('Push image') {
     steps {
       script {
-        withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'password_var', usernameVariable: 'username_var')]) {
+        
       docker.withRegistry( '', registryCredential ) {
-          sh 'docker login -u ${username_var} -p ${password_var}'
+          
         dockerImage.push()
-      }  
 }
        
       }
