@@ -65,6 +65,12 @@ stage('Build') {
     customImage.inside {
                 withCredentials([azureServicePrincipal('azure_cred')]) {
           sh 'az login'
+                  sh 'az group create --name sanyamdemogroup --location eastus'
+                  //sh 'az acr create --name sanyamregistry --resource-group sanyamdemogroup --sku Basic --admin-enabled true'
+                  sh 'docker login '
+                  sh 'az appservice plan create -n demoplan -g sanyamdemo --sku S1 --is-linux'
+                  sh 'az webapp create -g sanyamdemo -p demoplan -n sanyamdockerdemo --runtime "DOTNETCORE|3.0"'
+               
         }
     }
 
