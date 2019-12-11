@@ -64,6 +64,7 @@ stage('Build') {
 
     customImage.inside {
                 withCredentials([azureServicePrincipal('azure_cred')]) {
+                  sh 'az login'
           
                   sh 'az group create --name sanyamdemogroup --location eastus'
                   //sh 'az acr create --name sanyamregistry --resource-group sanyamdemogroup --sku Basic --admin-enabled true'
