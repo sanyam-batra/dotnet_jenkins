@@ -60,9 +60,14 @@ stage('Build') {
   stage('Deploy') {
     steps {
       script {
-        withCredentials([azureServicePrincipal('azure_cred')]) {
+            def customImage = docker.build("my-image:${env.BUILD_ID}","./aspnetapp/")
+
+    customImage.inside {
+                withCredentials([azureServicePrincipal('azure_cred')]) {
           sh 'az login'
         }
+    }
+
       }
     }
   }
