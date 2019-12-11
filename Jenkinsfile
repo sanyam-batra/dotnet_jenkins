@@ -57,12 +57,14 @@ stage('Build') {
       }
     }
   }
-  /*stage('Terraform') {
+  stage('Deploy') {
     steps {
       script {
-        sh 'terraform init'
+        withCredentials([azureServicePrincipal('azure_cred')]) {
+          sh 'az login'
+        }
       }
     }
-  }*/
+  }
 }
 }
