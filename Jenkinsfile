@@ -70,8 +70,8 @@ stage('Build') {
 
                   
                   sh 'az appservice plan create -n sanyamdemoplan -g sanyamdemogroup --sku S1 --is-linux'
-                  sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:29'
-                  sh 'az webapp config appsettings set --resource-group sanyamdemogroup --name sanyamdemoapp'
+                  sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:$BUILD_NUMBER'
+                  sh 'az webapp config appsettings set --resource-group sanyamdemogroup --name sanyamdemoapp --settings WEBSITES_PORT=9000'
                
         }
     }
