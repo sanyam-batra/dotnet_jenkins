@@ -64,15 +64,15 @@ stage('Build') {
 
     customImage.inside {
                 withCredentials([azureServicePrincipal('azure_cred')]) {
-          sh 'az login'
+          
                   sh 'az group create --name sanyamdemogroup --location eastus'
                   //sh 'az acr create --name sanyamregistry --resource-group sanyamdemogroup --sku Basic --admin-enabled true'
 
                   
                   sh 'az appservice plan create -n sanyamdemoplan -g sanyamdemogroup --sku S1 --is-linux'
                   sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:$BUILD_NUMBER'
-                  sh 'az webapp delete --name sanyamdemoapp --resource-group sanyamdemogroup'
-                  sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:$BUILD_NUMBER'
+                  //sh 'az webapp delete --name sanyamdemoapp --resource-group sanyamdemogroup'
+                  //sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:$BUILD_NUMBER'
                   sh 'az webapp config appsettings set --resource-group sanyamdemogroup --name sanyamdemoapp --settings WEBSITES_PORT=9000'
                
         }
