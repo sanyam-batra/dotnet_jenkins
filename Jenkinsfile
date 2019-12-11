@@ -67,9 +67,7 @@ stage('Build') {
           sh 'az login'
                   sh 'az group create --name sanyamdemogroup --location eastus'
                   //sh 'az acr create --name sanyamregistry --resource-group sanyamdemogroup --sku Basic --admin-enabled true'
-                  withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'passvar', usernameVariable: 'uservar')]) {
-    sh 'docker login '
-}
+
                   
                   sh 'az appservice plan create -n sanyamdemoplan -g sanyamdemogroup --sku S1 --is-linux'
                   sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:29'
