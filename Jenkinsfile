@@ -74,7 +74,7 @@ stage('Build') {
                   sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:$BUILD_NUMBER'
                   //sh 'az webapp delete --name sanyamdemoapp --resource-group sanyamdemogroup'
                   //sh 'az webapp create -g sanyamdemogroup -p sanyamdemoplan -n sanyamdemoapp --deployment-container-image-name sanyambatra/demo-pipeline:$BUILD_NUMBER'
-                  sh 'az webapp config appsettings set --resource-group sanyamdemogroup --name sanyamdemoapp --settings WEBSITES_PORT=9000'
+                  sh 'az webapp config appsettings set --resource-group sanyamdemogroup --name sanyamdemoapp --settings WEBSITES_PORT=$BUILD_NUMBER'
                
         }
     }
